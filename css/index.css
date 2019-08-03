@@ -1,0 +1,17 @@
+.col-sm-4{
+	padding:6% 2% 6% 2%;
+	margin:2%;
+	text-align:center;
+	text-decoration:none;
+	color:white;
+	
+}
+.products{
+	background-color:blue;
+}
+.list{
+	background-color:green;
+}
+.new{
+	background-color:red;
+}
