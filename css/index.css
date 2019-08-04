@@ -2,9 +2,12 @@
 	padding:6% 2% 6% 2%;
 	margin:2%;
 	text-align:center;
-	text-decoration:none;
-	color:white;
 	
+	
+}
+h5{
+	color: white;
+	text-decoration:none;
 }
 .products{
 	background-color:blue;
