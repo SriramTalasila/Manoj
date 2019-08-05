@@ -5,25 +5,73 @@
   <title>Inventerory Management</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/index.css">
+  <!-- <link rel="stylesheet" href="./css/index.css"> -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- mdl -->
+  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+  </style>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
+<!-- mdl end -->
+
+</head>
+<style>
+  .container {
+    margin-top: 2%;
+  }
+
+  table {
+    margin-top: 2%;
+  }
+</style>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Inventorary Management</a>
+      <a class="navbar-brand" href="../index.html">Inventorary Management <small> | List</small></a>
     </nav>
   </header>
+  <div class="container">
+    <div class="table-responsive">
+      <table id="mytable" class="table table-bordered">
+          <thead>  
+              <tr>  
+                <th>S.No</th>  
+                <th>Category</th>  
+                <th>Product</th>  
+                <th>Description</th>
+                <th>Quantity</th>  
+                <th>Remarks</th>
+              </tr>  
+            </thead>  
+            <tbody>  
+            </tbody>  
+      </table>
+    </div>
+    <button style="margin-top: 5%;margin-left:2%  " class="btn btn-danger float-right" id="delete"><i class="fa fa-print" aria-hidden="true"></i> Delete</button>
+    <button style="margin-top: 5%" class="btn btn-primary float-right" id="print"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+  </div>
+ 
+  <!-- JsPDF -->
+  <script src="https://gitcdn.xyz/repo/FuriosoJack/TableHTMLExport/v1.0.0/src/tableHTMLExport.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
 
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
+  <script src="../js/list.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="./js/index.js"> </script>
+  <!-- Bootstrap js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
