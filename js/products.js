@@ -47,14 +47,15 @@ $(document).ready(() => {
 			var i = 1;
 			$("tbody").empty();
 			for (var key in data) {
-				var c = '<tr><td>' + (i++) + '</td><td><a href="./productinfo.html	" onclick="navigate()"><h5 data-id ="' + key + '">' + data[key].Category_Name + '</h5></a><p>' + data[key].description
+				var c = '<tr><td>' + (i++) + '</td><td><h5 onclick="navigate()" data-id ="' + key + '">' + data[key].Category_Name + '</h5><p>' + data[key].description
 					+ '</p></td></tr>'
 				$(c).appendTo("tbody");
 			}
 		});
 	}
 
-	$("h5").click(() => {
-
-	})
+	function navigate() {
+		e.preventDefault();
+		localStorage.setItem("ProductId", "-LlS9E8OiB49Lfqr4KJ");
+	}
 })
