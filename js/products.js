@@ -16,16 +16,6 @@ $(document).ready(() => {
 	var database = firebase.database();
 	loadPage();
 
-	writeUserData("ss", "name", "emmnda", "dsds");
-	function writeUserData(userId, name, email, imageUrl) {
-		database.ref('users/' + userId).set({
-			username: name,
-			email: email,
-			profile_picture: imageUrl
-		});
-	}
-
-
 	$("#add").click(() => {
 		var name = $("#name").val();
 		var description = $("#description").val();
@@ -45,17 +35,21 @@ $(document).ready(() => {
 		database.ref('Category/').on('value', function (snapshot) {
 			var data = snapshot.val();
 			var i = 1;
+			var dataArray = [];
 			$("tbody").empty();
 			for (var key in data) {
-				var c = '<tr><td>' + (i++) + '</td><td><h5 onclick="navigate()" data-id ="' + key + '">' + data[key].Category_Name + '</h5><p>' + data[key].description
+				var obj = {
+					"key": key
+				};
+				dataArray[i] = key;
+				var c = '<tr><td>' + (i) + '</td><td><h5 onclick="navigate(' + i + ')" data-id ="' + key + '">' + data[key].Category_Name + '</h5><p>' + data[key].description
 					+ '</p></td></tr>'
 				$(c).appendTo("tbody");
+				i++;
 			}
+			localStorage.setItem("dataArray", dataArray);
+			console.log(dataArray);
 		});
 	}
-
-	function navigate() {
-		e.preventDefault();
-		localStorage.setItem("ProductId", "-LlS9E8OiB49Lfqr4KJ");
-	}
 })
+
