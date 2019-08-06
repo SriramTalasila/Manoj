@@ -29,7 +29,7 @@ $(document).ready(() => {
 
 
     $("#print").click(()=>{
-        $("#mytable").tableHTMLExport({
+        $("#mytable ").tableHTMLExport({
 
             // csv, txt, json, pdf
             type:'pdf',
