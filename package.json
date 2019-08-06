@@ -1,0 +1,14 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "Inventory ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo"
+    },
+    "author": "Sri ram Talasila",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.4"
+    }
+}
