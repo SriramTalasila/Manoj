@@ -1,15 +1,25 @@
 {
-    "name": "server",
-    "version": "1.0.0",
-    "description": "Inventory ",
+    "name": "inventoryserver",
+    "version": "0.1.0",
+    "description": "",
+    "engines": {
+      "node": "10.x"
+    },
     "main": "index.js",
     "scripts": {
-        "start":"node index.js",
-        "test": "node index.js"
+      "start": "node index.js",
+      "test": "node test.js"
+    },
+    "dependencies": {
+      "ejs": "^2.5.6",
+      "express": "^4.15.2"
     },
     "author": "Sri ram Talasila",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.16.4"
-    }
-}
+    "keywords": [
+      "node",
+      "heroku",
+      "express"
+    ],
+    "license": "ISC"
+  }
+  
