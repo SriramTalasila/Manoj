@@ -4,7 +4,8 @@
     "description": "Inventory ",
     "main": "index.js",
     "scripts": {
-        "test": "echo"
+        "start":"node index.js",
+        "test": "node index.js"
     },
     "author": "Sri ram Talasila",
     "license": "ISC",
