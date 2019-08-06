@@ -48,7 +48,7 @@ $(document).ready(() => {
 				i++;
 			}
 			localStorage.setItem("dataArray", dataArray);
-			console.log(dataArray);
+			//console.log(dataArray);
 		});
 	}
 })

@@ -20,7 +20,7 @@ $(document).ready(() => {
     database.ref('order/Items/').once('value', (ordered) => {
         var orderedData = ordered.val();
         database.ref("Category/").on('value', (snapshot) => {
-            console.log(snapshot.val());
+            //console.log(snapshot.val());
             var cdata = snapshot.val();
             var input = '<input type="number">';
             var btn = '<button class="btn ">add</button>';
@@ -77,11 +77,11 @@ $(document).ready(() => {
                 var productId = $(e.target).closest('tr').find('td>p')[1].getAttribute("data");
                 var productName = $(e.target).closest('tr').find('td>p')[1].textContent;
                 var description = $(e.target).closest('tr').find('td')[3].textContent;
-                console.log(description);
+                //console.log(description);
                 database.ref('order/Items/' + productId).once('value', (snapshot) => {
                     if (snapshot.val()) {
                         var count2 = parseInt(count) + parseInt(snapshot.val().count);
-                        console.log(snapshot.val().count);
+                        //console.log(snapshot.val().count);
                         database.ref('order/Items/' + productId).update({
                             count: count2
                         });

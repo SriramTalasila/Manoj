@@ -16,7 +16,8 @@ $(document).ready(() => {
     var database = firebase.database();
 
     database.ref("order/Items/").on('value', (snapshot) => {
-        console.log(snapshot.val());
+        $("tbody").empty();
+        //console.log(snapshot.val());
         var cdata = snapshot.val();
         var i = 0;
         for (var key in cdata) {
@@ -28,15 +29,25 @@ $(document).ready(() => {
     })
 
 
-    $("#print").click(()=>{
+    $("#print").click(() => {
         $("#mytable ").tableHTMLExport({
 
             // csv, txt, json, pdf
-            type:'pdf',
-          
+            type: 'pdf',
+
             // file name
-            filename:'sample.pdf'
-            
-          });
+            filename: 'sample.pdf'
+
+        });
+    })
+
+    $("#delete").click(() => {
+        alert("Are you sure you want to delete")
+        database.ref('order/Items').remove().then(function () {
+            alert("Remove succeeded.")
+        })
+            .catch(function (error) {
+                alert("Remove failed: " + error.message)
+            });
     })
 })

@@ -13,7 +13,7 @@ $(document).ready(() => {
 	firebase.initializeApp(firebaseConfig);
 
 	var database = firebase.database();
-		var arr = $.makeArray(localStorage.getItem('dataArray'));
+	var arr = $.makeArray(localStorage.getItem('dataArray'));
 	var ar;
 	arr.forEach(element => {
 		ar = element.split(',');
@@ -23,15 +23,38 @@ $(document).ready(() => {
 
 	database.ref("Category/" + categoryID + "/products/").on('value', (snapshot) => {
 		var data = snapshot.val();
-		console.log(data);
+		//console.log(data);
 		$("tbody").empty();
 		var i = 1;
 		for (var key in data) {
-			var c = '<tr><td>' + (i++) + '</td><td><h5>' + data[key].Product_Name + '</h5><p>' + data[key].description + '</p></td></tr>';
+			var c = '<tr><td>' + (i++) + '</td><td><h5 data="' + key + '">' + data[key].Product_Name + '</h5><p>' + data[key].description + '</p></td><td><button class="btn btn-danger" >Delete</button></td></tr>';
 			$(c).appendTo("tbody")
-			console.log(data[key])
+			//console.log(data[key]);
 		}
+		$('#mytable').dataTable();
+
+		$('.dataTable').on('click', 'tbody td button', function (e) {
+			var ProductId = $(e.target).closest('tr').find('td>h5')[0].getAttribute("data");
+			alert("Are you sure you want to delete")
+			database.ref("Category/" + categoryID + "/products/" + ProductId + "/").remove().then(function () {
+				alert("Remove succeeded.")
+			})
+				.catch(function (error) {
+					alert("Remove failed: " + error.message)
+				});
+		})
 	})
+
+	$("#dlt").click(() => {
+		alert("Are you want to delete entire caateory");
+		database.ref("Category/" + categoryID + "/").remove().then(function () {
+			alert("Remove succeeded.")
+		})
+			.catch(function (error) {
+				alert("Remove failed: " + error.message)
+			});
+	})
+
 
 
 	$("#add").click(() => {

@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <!-- mdl -->
+  <link rel="stylesheet" href="../css/dataTables.min.css">
+
+  <script type="text/javascript" src="../js/dataTables.min.js"></script>
+
 </head>
 <style>
 </style>
@@ -21,29 +29,38 @@
 
     </nav>
   </header>
-  <div class="container">
+  <div style="margin-top: 5%" class="container">
     <div class="row">
       <div class="col-8">
         <h3 class="float-left">Products</h3>
       </div>
-      <div class="col-4"><button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Add <i
-            class="fa fa-plus" aria-hidden="true"></i></button></div>
+      <div class="col-4">
+        <button style="margin-left: 2%" class="btn btn-danger float-right" id="dlt"> <i class="fa fa-plus"
+            aria-hidden="true"></i>Delete</button>
+        <button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Add <i class="fa fa-plus"
+            aria-hidden="true"></i></button></div>
     </div>
-    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-      <col width="1%">
-      <col width="99%">
-      <thead>
-        <tr>
-          <th class="th-sm">S.No
-          </th>
-          <th class="th-sm">Product
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
+    
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordered">
+          <col width="1%">
+          <col width="90%">
+          <col width="9%">
+          <thead>
+            <tr>
+              <th class="th-sm">S.No
+              </th>
+              <th class="th-sm">Product
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+     
+    </div>
   </div>
 
   </div>
@@ -92,9 +109,6 @@
   <!-- firebase -->
 
   <!-- Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
   <script src="../js/productinfo.js"> </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
