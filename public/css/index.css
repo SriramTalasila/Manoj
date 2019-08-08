@@ -12,14 +12,22 @@ h5{
 	font-size: 110%
 }
 .products{
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa7SCtHbAgWCvccay9nEqjK_jw-ttMhniefLwyLgmzHp4AgWqNKQ");
 	background-color:blue;
 	opacity: 0.6;
 }
 .list{
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOtpHADqq7AIs9zbvkhZr6lXDcjxB-XW7-eG7XVh9C-FkX8Vk8");
+	background-size: 100%;
 	background-color:green;
 	opacity: 0.6;
 }
 .new{
 	background-color:rgb(255, 0, 0);
+	opacity: 0.6;
+}
+.his{
+	background-image: url("https://www.qmul.ac.uk/media/qmul-course-images/ug/sllf/header-images/history-and-comparative-literature.jpg");
+	background-color:orangered;
 	opacity: 0.6;
 }
