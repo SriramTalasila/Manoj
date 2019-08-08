@@ -14,8 +14,9 @@ $(document).ready(() => {
 
 
     var database = firebase.database();
-
+    $("#lode").css('display','block');
     database.ref("order/Items/").on('value', (snapshot) => {
+        $("#lode").css('display','none');
         $("tbody").empty();
         //console.log(snapshot.val());
         var cdata = snapshot.val();
@@ -40,28 +41,32 @@ $(document).ready(() => {
 
     $("#delete").click(() => {
         alert("Are you sure you want to delete")
-        // database.ref('order/Items').once('value',(snapshot)=>{
-        //     if(snapshot.val()){
-        //         var obj = {
-        //             "date":Date(),
-        //         };
-        //         var data = snapshot.val();
-        //         for(key in data){
-        //             var o ={
-        //                 "category":data[key].parent,
-        //                 "Product":data[key].Product_Name,
-        //                 "Quantity":data[key].count
-        //             }
-        //             obj.push(o);
-        //         }
-        //         console.log(obj)
-        //     }
-        // },)
-        database.ref('order/Items').remove().then(function () {
-            alert("Remove succeeded.")
+        database.ref('order/Items').once('value', (snapshot) => {
+            if (snapshot.val()) {
+                var dataArray = [];
+                var data = snapshot.val();
+                for (key in data) {
+                    var o = { "category": data[key].parent, "Product": data[key].Product_Name, "Quantity": data[key].count }
+                    dataArray.push(o);
+                }
+                var obj = {
+                    "data": dataArray
+                }
+                var d = new Date();
+                var n = d.getTime();
+                database.ref('History/' + n + '/').set({
+                    "data": dataArray
+                })
+            }
+            database.ref('order/Items').remove().then(function () {
+                alert("Remove succeeded.")
+            })
+                .catch(function (error) {
+                    alert("Remove failed: " + error.message)
+                });
         })
-            .catch(function (error) {
-                alert("Remove failed: " + error.message)
-            });
+
+
     })
+
 })

@@ -13,6 +13,7 @@ $(document).ready(() => {
 	firebase.initializeApp(firebaseConfig);
 
 	var database = firebase.database();
+	$("#lode").css('display','block');
 	var arr = $.makeArray(localStorage.getItem('dataArray'));
 	var ar;
 	arr.forEach(element => {
@@ -22,6 +23,7 @@ $(document).ready(() => {
 
 
 	database.ref("Category/" + categoryID + "/products/").on('value', (snapshot) => {
+		$("#lode").css('display','none');
 		var data = snapshot.val();
 		//console.log(data);
 		$("tbody").empty();

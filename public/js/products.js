@@ -31,8 +31,9 @@ $(document).ready(() => {
 		});
 	})
 
-
+	$("#lode").css('display','block');
 	database.ref('Category/').on('value', function (snapshot) {
+		$("#lode").css('display','none');
 		var data = snapshot.val();
 		var i = 1;
 		var dataArray = [];

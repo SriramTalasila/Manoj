@@ -16,10 +16,11 @@ $(document).ready(() => {
     var dataArray = [];
 
     var database = firebase.database();
-
+    $("#lode").css('display','block');
     database.ref('order/Items/').once('value', (ordered) => {
         var orderedData = ordered.val();
         database.ref("Category/").on('value', (snapshot) => {
+            $("#lode").css('display','none');
             //console.log(snapshot.val());
             var cdata = snapshot.val();
             var input = '<input type="number">';
