@@ -31,18 +31,32 @@ $(document).ready(() => {
 
     $("#print").click(() => {
         $("#mytable ").tableHTMLExport({
-
             // csv, txt, json, pdf
             type: 'pdf',
-
             // file name
-            filename: 'sample.pdf'
-
+            filename: 'orderList.pdf'
         });
     })
 
     $("#delete").click(() => {
         alert("Are you sure you want to delete")
+        // database.ref('order/Items').once('value',(snapshot)=>{
+        //     if(snapshot.val()){
+        //         var obj = {
+        //             "date":Date(),
+        //         };
+        //         var data = snapshot.val();
+        //         for(key in data){
+        //             var o ={
+        //                 "category":data[key].parent,
+        //                 "Product":data[key].Product_Name,
+        //                 "Quantity":data[key].count
+        //             }
+        //             obj.push(o);
+        //         }
+        //         console.log(obj)
+        //     }
+        // },)
         database.ref('order/Items').remove().then(function () {
             alert("Remove succeeded.")
         })
