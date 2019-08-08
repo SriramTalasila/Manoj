@@ -49,6 +49,7 @@ $(document).ready(() => {
 		alert("Are you want to delete entire caateory");
 		database.ref("Category/" + categoryID + "/").remove().then(function () {
 			alert("Remove succeeded.")
+			window.location.href = "../html/products.html";
 		})
 			.catch(function (error) {
 				alert("Remove failed: " + error.message)
